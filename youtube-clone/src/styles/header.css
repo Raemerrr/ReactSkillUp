@@ -1,0 +1,67 @@
+:root{
+    --side-margin : 40px;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    background-color: black;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    margin-left: var(--side-margin);
+}
+
+.logo i{
+    color: red;
+    font-size: 30px;
+}
+
+.logo label{
+    color: white;
+    margin-left: 5px;
+}
+
+.search{
+    display: flex;
+    height: 25px;
+    align-items: center;
+}
+
+.search input{
+    width: 500px;
+    height: 100%;
+}
+
+.search button{
+    height: 125%;
+    margin: 0;
+}
+
+.info{
+    margin-right: var(--side-margin);
+}
+
+@media screen and (max-width: 768px) {
+    
+.logo{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.search input{
+    width: 150px;
+    height: 100%;
+}
+
+.info{
+    margin-right: 5px;
+}
+}

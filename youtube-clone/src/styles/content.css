@@ -1,0 +1,11 @@
+.content{
+    margin: 20px;
+    width: 320px;
+}
+
+.content p {
+    margin: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
