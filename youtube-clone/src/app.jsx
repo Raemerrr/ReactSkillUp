@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./app.css";
 import Header from "./components/header";
-import Content from "./components/content";
+import Contents from "./components/contents";
 import axios from "axios";
 // AIzaSyAuXK_4hDVDbo1hNKXd4uoRxgH9mR46epU
 
@@ -31,13 +31,14 @@ const App = () => {
   return (
     <div>
       <Header />
-      <ul>
+      <Contents isLoading={isLoading} data={contentData}/>
+      {/* <ul>
         {isLoading
           ? contentData.map((item) => {
               return <Content key={item.id} data={item} />;
             })
           : "로딩중"}
-      </ul>
+      </ul> */}
     </div>
   );
 };

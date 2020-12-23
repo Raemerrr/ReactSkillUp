@@ -1,0 +1,12 @@
+.contents{
+    display: flex;
+    margin: 20px;
+    width: 90vw;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    /* background-color: black; */
+    list-style: none;
+    flex-wrap:wrap;
+}
