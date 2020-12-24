@@ -9,7 +9,7 @@ const Header = memo(() => {
         <label className="header-label">램Tube</label>
       </div>
       <div className="search">
-        <input className="header-input" placeholder="search.." />
+        <input className="header-input" placeholder="검색" />
         <button className="header-button">
           <i className="fas fa-search"></i>
         </button>

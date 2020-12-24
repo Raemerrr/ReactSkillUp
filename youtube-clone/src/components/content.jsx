@@ -9,7 +9,7 @@ const Content = (props) => {
       <p>{props.data.snippet.channelTitle}</p>
       <div>
         <p>
-          조회수:{props.data.statistics.viewCount}●
+          조회수:{props.data.statistics.viewCount}ㆍ
           {props.data.snippet.publishedAt}
         </p>
       </div>

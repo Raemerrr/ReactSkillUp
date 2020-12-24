@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./app.css";
 import Header from "./components/header";
 import Contents from "./components/contents";
+import Player from "./components/player";
 import axios from "axios";
 // AIzaSyAuXK_4hDVDbo1hNKXd4uoRxgH9mR46epU
 
@@ -12,7 +13,7 @@ const App = () => {
   useEffect(() => {
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet,statistics&chart=mostPopular&maxResults=25&regionCode=KR`
+        `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet,statistics&chart=mostPopular&maxResults=28&regionCode=KR`
       )
       .then(function (response) {
         // handle success
@@ -29,17 +30,13 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
-      <Contents isLoading={isLoading} data={contentData}/>
-      {/* <ul>
-        {isLoading
-          ? contentData.map((item) => {
-              return <Content key={item.id} data={item} />;
-            })
-          : "로딩중"}
-      </ul> */}
-    </div>
+      <div className="viewer">
+        <Player />
+        <Contents isLoading={isLoading} data={contentData}/>
+      </div>
+    </>
   );
 };
 
