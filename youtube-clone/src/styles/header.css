@@ -52,19 +52,18 @@
 }
 
 @media screen and (max-width: 768px) {
-    
-.logo{
-    display: flex;
-    align-items: center;
-    margin-left: 5px;
-}
+    .logo{
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+    }
 
-.search input{
-    width: 150px;
-    height: 100%;
-}
+    .search input{
+        width: 150px;
+        height: 100%;
+    }
 
-.info{
-    margin-right: 5px;
-}
+    .info{
+        margin-right: 5px;
+    }
 }
