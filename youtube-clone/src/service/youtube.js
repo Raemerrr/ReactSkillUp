@@ -2,15 +2,24 @@ import axios from "axios";
 
 class Youtube {
   constructor(key) {
-    this.key = key;
-    this.maxResults = 27;
+    this.client = axios.create({
+      baseURL: "https://www.googleapis.com/youtube/v3",
+      params: {
+        key: key,
+        maxResults: 27,
+        part: "snippet",
+      },
+    });
   }
 
   async mostPopular() {
     try {
-      const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?key=${this.key}&part=snippet&chart=mostPopular&maxResults=${this.maxResults}&regionCode=KR`
-      );
+      const response = await this.client.get("videos", {
+        params: {
+          chart: "mostPopular",
+          regionCode: "KR",
+        },
+      });
       return response.data.items;
     } catch (error) {
       // handle error
@@ -20,10 +29,16 @@ class Youtube {
 
   async searchVideos(query) {
     try {
-      const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?key=${this.key}&part=snippet&maxResults=${this.maxResults}&q=${query}&type=video`
-      );
-      return response.data.items;
+      const response = await this.client.get("search", {
+        params: {
+          q: query,
+          type: "video",
+        },
+      });
+      return response.data.items.map((item) => ({
+        ...item,
+        id: item.id.videoId,
+      }));
     } catch (error) {
       // handle error
       console.log(error);

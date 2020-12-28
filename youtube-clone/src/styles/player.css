@@ -3,4 +3,9 @@
     flex-direction: column;
     margin: 15px 0px;
     list-style: none;
+    padding: 0.2em;
+}
+
+pre{
+    white-space: pre-wrap;
 }
