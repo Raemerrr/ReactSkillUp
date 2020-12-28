@@ -10,7 +10,7 @@ const Player = memo(({ data, data: { snippet } }) => {
         title="youtube video player"
         type="text/html"
         width="100%"
-        height="360"
+        height="500"
         src={`http://www.youtube.com/embed/${data.id}`}
         frameBorder="0"
       ></iframe>

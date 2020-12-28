@@ -6,7 +6,7 @@ class Youtube {
       baseURL: "https://www.googleapis.com/youtube/v3",
       params: {
         key: key,
-        maxResults: 27,
+        maxResults: 28,
         part: "snippet",
       },
     });
