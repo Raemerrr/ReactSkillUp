@@ -3,31 +3,18 @@ import "./app.css";
 import Header from "./components/header";
 import Contents from "./components/contents";
 import Player from "./components/player";
-import axios from "axios";
 
-const App = () => {
-  const apiKey = "AIzaSyAuXK_4hDVDbo1hNKXd4uoRxgH9mR46epU";
+const App = ({youtube}) => {
   const [contentData, setContentData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [playerData, setPlayerData] = useState(null);
-  const maxResults = 27;
+
   useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet&chart=mostPopular&maxResults=${maxResults}&regionCode=KR`
-      )
-      .then(function (response) {
-        // handle success
-        setIsLoading(true);
-        setContentData(response.data.items);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-    // .then(function () {
-    //   // always executed
-    // });
+    setIsLoading(true);
+    // setContentData(youtube.mostPopular().then());
+    youtube
+      .mostPopular() //
+      .then(videos => setContentData(videos));
   }, []);
 
   const handleActive = (data) => {
@@ -36,19 +23,9 @@ const App = () => {
   };
 
   const handleSearch = (search_text) => {
-    axios
-      .get(
-        `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&maxResults=${maxResults}&q=${search_text}`
-      )
-      .then(function (response) {
-        // handle success
-        setIsLoading(true);
-        setContentData(response.data.items);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    youtube
+      .searchVideos(search_text) //
+      .then((videos) => setContentData(videos));
   };
 
   return (
